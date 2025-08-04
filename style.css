@@ -1,208 +1,268 @@
-/* Reset */
+/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-  font-family: Arial, sans-serif;
   line-height: 1.6;
-  background-color: #f9f9f9;
+  background-color: #f5f5f5;
   color: #333;
 }
 
+/* Header and Navbar */
 header {
-  background: linear-gradient(90deg, orange, gold);
-  color: #fff;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  position: sticky;
-  top: 0;
-  z-index: 10;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
 }
 
 .nav-logo img {
   height: 40px;
+  margin-right: 10px;
 }
 
 .nav-logo h1 {
-  font-size: 22px;
-  font-weight: bold;
+  font-size: 20px;
+  color: #f68b1e;
 }
 
 nav a {
-  margin-left: 20px;
-  color: #fff;
+  margin: 0 10px;
+  color: #333;
   text-decoration: none;
   font-weight: bold;
 }
 
-nav a:hover {
-  text-decoration: underline;
-}
-
+/* Hero Section */
 .hero {
-  background: url('your-hero-image.jpg') no-repeat center center/cover;
-  height: 65vh;
+  background: url('https://images.unsplash.com/photo-1548013146-72479768bada') center center/cover no-repeat;
+  height: 55vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  position: relative;
   text-align: center;
-}
-
-.hero.small {
-  height: 45vh;
+  color: white;
+  position: relative;
+  margin-top: 60px;
 }
 
 .hero::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }
 
 .hero-content {
-  z-index: 1;
-  max-width: 800px;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-content h2 {
-  font-size: 32px;
-  margin-bottom: 10px;
+  font-size: 36px;
+  font-weight: bold;
 }
 
-.packages {
-  padding: 40px 20px;
+.hero-content p {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+/* Cards and Sections */
+section {
+  padding: 60px 20px;
   text-align: center;
-}
-
-.packages h2 {
-  font-size: 28px;
-  margin-bottom: 30px;
 }
 
 .card-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
+  margin-top: 30px;
 }
 
 .card {
-  background: #fff;
-  padding: 15px;
-  border-radius: 10px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
   width: 280px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  text-align: center;
-  transition: 0.3s;
+  padding: 20px;
+  transition: transform 0.3s ease;
 }
 
 .card:hover {
-  transform: scale(1.03);
+  transform: translateY(-5px);
 }
 
 .card img {
   width: 100%;
-  height: 160px;
+  height: 180px;
   object-fit: cover;
-  border-radius: 6px;
-  margin-bottom: 10px;
+  border-radius: 10px;
+  margin-bottom: 15px;
 }
 
 .card h3 {
   font-size: 20px;
-  margin: 10px 0 5px;
+  margin-bottom: 10px;
 }
 
 .card p {
   font-size: 15px;
-  margin-bottom: 15px;
+  color: #666;
 }
 
 .btn {
   display: inline-block;
-  background: orange;
-  color: #fff;
+  margin-top: 12px;
   padding: 10px 20px;
+  background-color: #f68b1e;
+  color: white;
+  border-radius: 6px;
   text-decoration: none;
   font-weight: bold;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  transition: background 0.3s;
 }
 
 .btn:hover {
-  background: darkorange;
+  background-color: #d96f00;
 }
 
-.about-rishikesh {
-  padding: 30px 20px;
+/* About Section */
+.about-section p {
   max-width: 900px;
   margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* Contact */
+.contact-section p {
+  font-size: 16px;
+}
+
+/* Footer */
+footer {
+  background: #111;
+  color: white;
   text-align: center;
-  font-size: 17px;
-  color: #444;
+  padding: 20px;
+  position: relative;
 }
 
-.note {
-  font-size: 14px;
-  color: #777;
-  margin-top: 20px;
+footer .insta-icon {
+  width: 30px;
+  margin-top: 10px;
+  vertical-align: middle;
 }
 
-/* WhatsApp Form */
-.form-popup {
+/* Form Popup Styling */
+#formPopup {
   display: none;
   position: fixed;
-  z-index: 999;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  border: 2px solid #333;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 400px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  z-index: 2000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
 }
 
-.form-container input,
-.form-container select,
-.form-container textarea {
+#formPopup.show {
+  display: flex;
+}
+
+#whatsappForm {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 25px;
+  border-radius: 12px;
+  width: 320px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+#whatsappForm h3 {
+  margin-bottom: 15px;
+}
+
+#whatsappForm input,
+#whatsappForm select,
+#whatsappForm textarea {
   width: 100%;
+  margin-bottom: 12px;
   padding: 8px;
-  margin: 10px 0;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 6px;
+  font-size: 14px;
 }
 
-.form-container textarea {
-  resize: vertical;
+#whatsappForm button {
+  background-color: #25d366;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-.form-container .btn.cancel {
-  background-color: #ccc;
-  margin-top: 10px;
+#whatsappForm button:hover {
+  background-color: #1ebd57;
 }
 
-footer {
-  background: #222;
-  color: #fff;
-  text-align: center;
-  padding: 15px;
-  margin-top: 40px;
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-logo h1 {
+    font-size: 16px;
+  }
+
+  .hero-content h2 {
+    font-size: 24px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+  }
 }
