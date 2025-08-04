@@ -1,1 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Destination Wedding | Journey Junction Travel</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="nav-logo">
+      <img src="sdg.png" alt="Logo" />
+      <h1>Journey Junction Travel</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="rishikesh.html">Packages</a>
+      <a href="adventure.html">Adventure</a>
+    </nav>
+  </header>
 
+  <section class="hero small">
+    <div class="hero-content">
+      <h2>Destination Weddings in Rishikesh</h2>
+    </div>
+  </section>
+
+  <section class="description">
+    <p>Say "I do" by the Ganges or in the lush green hills. Journey Junction Travel helps you plan the perfect destination wedding with full arrangements — venues, décor, music, catering, logistics, and accommodation — tailored to your dream.</p>
+  </section>
+
+  <section class="packages">
+    <h2>Wedding Packages</h2>
+    <div class="card-container">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1550155857-26dbecd14a41?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Wedding Basic" />
+        <h3>Intimate Wedding 💍</h3>
+        <p>Up to 50 guests, riverside location, 1 night stay</p>
+        <a href="#" class="btn" onclick="openForm('Wedding Basic')">Book Now</a>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1751615072331-7d6e8faa934d?q=80&w=1437&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Wedding Grand" />
+        <h3>Grand Wedding Celebration 🎉</h3>
+        <p>150+ guests, 2-day event, complete planning</p>
+        <a href="#" class="btn" onclick="openForm('Wedding Grand')">Book Now</a>
+      </div>
+    </div>
+    <p class="note">*Pricing and services vary by guest count and season</p>
+  </section>
+
+  <div class="form-popup" id="popupForm">
+    <form id="bookingForm" class="form-container" onsubmit="sendWhatsAppMessage(event)">
+      <h3>Customize Your Wedding</h3>
+      <input type="text" id="people" placeholder="Number of Guests" required>
+      <input type="text" id="days" placeholder="Preferred Date(s)" required>
+      <select id="transport">
+        <option value="">Transportation Required?</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+      <textarea id="message" placeholder="Special Requests or Custom Plan"></textarea>
+      <button type="submit" class="btn">Submit via WhatsApp</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Journey Junction Travel</p>
+    <a href="https://www.instagram.com/journey_junction_123" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram" class="insta-icon"/>
+    </a>
+  </footer>
+
+  <script>
+    let selectedPackage = "";
+    function openForm(pkg) {
+      selectedPackage = pkg;
+      document.getElementById("popupForm").style.display = "block";
+    }
+    function closeForm() {
+      document.getElementById("popupForm").style.display = "none";
+    }
+    function sendWhatsAppMessage(event) {
+      event.preventDefault();
+      const people = document.getElementById("people").value;
+      const days = document.getElementById("days").value;
+      const transport = document.getElementById("transport").value;
+      const message = document.getElementById("message").value;
+
+      const text = `Booking: ${selectedPackage}\nGuests: ${people}\nDate(s): ${days}\nTransport: ${transport}\nMessage: ${message}`;
+      const url = `https://wa.me/919131024965?text=${encodeURIComponent(text)}`;
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
+</html>
