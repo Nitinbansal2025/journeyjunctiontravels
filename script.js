@@ -9,6 +9,10 @@ function openForm(packageName) {
 
   const formAlt = document.querySelector(".form-popup");
   if (formAlt) formAlt.style.display = "flex";
+
+  // Set package name in form if the input exists
+  const packageInput = document.getElementById("packageName");
+  if (packageInput) packageInput.value = packageName;
 }
 
 // Close popup form
@@ -29,4 +33,12 @@ function sendMessage(event) {
   const date = document.getElementById("date")?.value || "";
   const msg = document.getElementById("message")?.value || "";
 
-  const text = `Hello! I am interested in b
+  const pkg = selectedPackage || document.getElementById("packageName")?.value || "Not specified";
+
+  const text = `Hello! I am interested in booking:%0A📦 Package: ${pkg}%0A👤 Name: ${name}%0A📞 Phone: ${phone}%0A📅 Date: ${date}%0A📝 Message: ${msg}`;
+  const number = "919131024965"; // Your WhatsApp number
+  const link = `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
+
+  window.open(link, "_blank");
+  closeForm();
+}
