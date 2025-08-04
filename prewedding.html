@@ -19,8 +19,8 @@
     </nav>
   </header>
 
-  <!-- Fixed Hero Section with Unique Image -->
-  <section class="hero small-hero" style="background-image: url('https://images.unsplash.com/photo-1721655426078-954f8967d9ea?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size: cover; background-position: center;">
+  <!-- Hero Section with Unique Image -->
+  <section class="hero small-hero" style="background-image: url('https://images.unsplash.com/photo-1721655426078-954f8967d9ea?q=80&w=1170&auto=format&fit=crop'); background-size: cover; background-position: center;">
     <div class="hero-content">
       <h2>Pre-Wedding Shoots in Rishikesh</h2>
     </div>
@@ -54,6 +54,8 @@
     <form class="form-container" onsubmit="sendWhatsAppMessage(event)">
       <h3>Customize Your Shoot</h3>
       <input type="hidden" id="packageName" />
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="text" id="phone" placeholder="Phone Number" required />
       <input type="text" id="people" placeholder="Number of People" required />
       <input type="text" id="days" placeholder="Preferred Date(s)" required />
       <select id="transport" required>
@@ -73,35 +75,6 @@
       <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram" class="insta-icon"/>
     </a>
   </footer>
-
-  <script>
-    let selectedPackage = "";
-
-    function openForm(pkg) {
-      selectedPackage = pkg;
-      document.getElementById("popupForm").style.display = "flex";
-      document.getElementById("packageName").value = pkg;
-    }
-
-    function closeForm() {
-      document.getElementById("popupForm").style.display = "none";
-    }
-
-    function sendWhatsAppMessage(event) {
-      event.preventDefault();
-      const people = document.getElementById("people").value;
-      const days = document.getElementById("days").value;
-      const transport = document.getElementById("transport").value;
-      const message = document.getElementById("message").value;
-      const pkg = document.getElementById("packageName").value;
-
-      const text = `Pre-Wedding Booking: ${pkg}%0A📍 People: ${people}%0A📅 Dates: ${days}%0A🚗 Transport: ${transport}%0A📝 Message: ${message}`;
-      const url = `https://wa.me/919131024965?text=${encodeURIComponent(text)}`;
-      window.open(url, "_blank");
-
-      closeForm();
-    }
-  </script>
 
   <script src="script.js"></script>
 </body>
