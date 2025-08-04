@@ -1,4 +1,4 @@
-/* Reset and base styles */
+/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -6,37 +6,22 @@
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f9f9f9;
-  color: #222;
+  font-family: Arial, sans-serif;
   line-height: 1.6;
+  background-color: #f9f9f9;
+  color: #333;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-h2 {
-  text-align: center;
-  margin: 2rem 0 1rem;
-  font-size: 2rem;
-  color: #d60000;
-}
-
-/* Header & Navbar */
 header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
+  background: linear-gradient(90deg, orange, gold);
+  color: #fff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 30px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .nav-logo {
@@ -50,153 +35,174 @@ header {
 }
 
 .nav-logo h1 {
-  font-size: 1.5rem;
+  font-size: 22px;
   font-weight: bold;
-  color: #015501;
-  white-space: nowrap;
 }
 
 nav a {
   margin-left: 20px;
-  font-weight: 600;
-  color: #000;
-  transition: color 0.3s ease;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 nav a:hover {
-  color: #f97300;
+  text-decoration: underline;
 }
 
-/* Hero Section */
 .hero {
-  margin-top: 80px;
-  background-image: url('https://images.unsplash.com/photo-1496545672447-f699b503d270?q=80&w=2071&auto=format&fit=crop');
-  background-size: cover;
-  background-position: center;
-  height: 85vh;
+  background: url('your-hero-image.jpg') no-repeat center center/cover;
+  height: 65vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  color: white;
+  color: #fff;
   position: relative;
+  text-align: center;
+}
+
+.hero.small {
+  height: 45vh;
 }
 
 .hero::before {
-  content: '';
+  content: "";
   position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .hero-content {
-  position: relative;
   z-index: 1;
+  max-width: 800px;
 }
 
-.hero h2 {
-  font-size: 3rem;
-  color: white;
-  margin-bottom: 0.5rem;
+.hero-content h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
 }
 
-.hero p {
-  font-size: 1.2rem;
-  color: #eee;
-}
-
-/* Package Section */
 .packages {
-  padding: 3rem 1rem;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.packages h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
 }
 
 .card-container {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
-  gap: 2rem;
+  justify-content: center;
+  gap: 20px;
 }
 
 .card {
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  padding: 20px;
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  width: 280px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   text-align: center;
-  max-width: 300px;
-  transition: transform 0.3s ease;
+  transition: 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: scale(1.03);
 }
 
 .card img {
   width: 100%;
-  height: 180px;
+  height: 160px;
   object-fit: cover;
   border-radius: 6px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .card h3 {
-  margin-bottom: 10px;
-  color: #222;
+  font-size: 20px;
+  margin: 10px 0 5px;
 }
 
-.card .btn {
+.card p {
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.btn {
   display: inline-block;
-  background: #25d366;
-  color: white;
-  padding: 10px 16px;
-  border-radius: 6px;
-  font-weight: 600;
+  background: orange;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: darkorange;
+}
+
+.about-rishikesh {
+  padding: 30px 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 17px;
+  color: #444;
+}
+
+.note {
+  font-size: 14px;
+  color: #777;
+  margin-top: 20px;
+}
+
+/* WhatsApp Form */
+.form-popup {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid #333;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.form-container input,
+.form-container select,
+.form-container textarea {
+  width: 100%;
+  padding: 8px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-container textarea {
+  resize: vertical;
+}
+
+.form-container .btn.cancel {
+  background-color: #ccc;
   margin-top: 10px;
 }
 
-/* About Section */
-.about-section {
-  padding: 3rem 1rem;
-  background: #f5f5f5;
-  text-align: center;
-}
-
-.about-section p {
-  max-width: 900px;
-  margin: 0 auto;
-  font-size: 1rem;
-  line-height: 1.8;
-  text-align: justify;
-  white-space: pre-line;
-}
-
-/* Contact Section */
-.contact-section {
-  padding: 2rem 1rem;
-  background: #ffffff;
-  text-align: center;
-}
-
-.contact-section p {
-  font-size: 1.1rem;
-}
-
-/* Footer */
 footer {
-  background: #333;
-  color: white;
+  background: #222;
+  color: #fff;
   text-align: center;
-  padding: 1rem 0;
-  position: relative;
-}
-
-footer a {
-  color: white;
-}
-
-footer .insta-icon {
-  width: 24px;
-  height: 24px;
-  margin-left: 10px;
-  vertical-align: middle;
+  padding: 15px;
+  margin-top: 40px;
 }
