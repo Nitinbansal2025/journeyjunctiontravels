@@ -19,7 +19,8 @@
     </nav>
   </header>
 
-  <section class="hero small-hero">
+  <!-- ✅ Hero with Unique Image -->
+  <section class="hero small-hero" style="background-image: url('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size: cover; background-position: center;">
     <div class="hero-content">
       <h2>Destination Weddings in Rishikesh</h2>
     </div>
@@ -33,13 +34,13 @@
     <h2>Wedding Packages</h2>
     <div class="card-container">
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1550155857-26dbecd14a41?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Wedding Basic" />
+        <img src="https://images.unsplash.com/photo-1550155857-26dbecd14a41?q=80&w=1170&auto=format&fit=crop" alt="Wedding Basic" />
         <h3>Intimate Wedding 💍</h3>
         <p>Up to 50 guests, riverside location, 1 night stay</p>
         <button class="btn" onclick="openForm('Intimate Wedding')">Book Now</button>
       </div>
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1751615072331-7d6e8faa934d?q=80&w=1437&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Wedding Grand" />
+        <img src="https://images.unsplash.com/photo-1751615072331-7d6e8faa934d?q=80&w=1437&auto=format&fit=crop" alt="Wedding Grand" />
         <h3>Grand Wedding Celebration 🎉</h3>
         <p>150+ guests, 2-day event, complete planning</p>
         <button class="btn" onclick="openForm('Grand Wedding Celebration')">Book Now</button>
@@ -48,12 +49,13 @@
     <p class="note">*Pricing and services vary by guest count and season</p>
   </section>
 
-  <!-- WhatsApp Booking Popup Form -->
+  <!-- ✅ WhatsApp Booking Popup Form -->
   <div class="form-popup" id="formPopup">
     <form id="bookingForm" class="form-container" onsubmit="sendMessage(event)">
       <h3>Customize Your Wedding</h3>
-      <input type="text" id="people" placeholder="Number of Guests" required>
-      <input type="text" id="date" placeholder="Preferred Date(s)" required>
+      <input type="hidden" id="packageName" />
+      <input type="text" id="people" placeholder="Number of Guests" required />
+      <input type="text" id="date" placeholder="Preferred Date(s)" required />
       <select id="transport" required>
         <option value="">Transportation Required?</option>
         <option value="Yes">Yes</option>
@@ -72,7 +74,34 @@
     </a>
   </footer>
 
-  <!-- Link to script file -->
+  <script>
+    let selectedPackage = "";
+
+    function openForm(pkg) {
+      selectedPackage = pkg;
+      document.getElementById("packageName").value = pkg;
+      document.getElementById("formPopup").style.display = "flex";
+    }
+
+    function closeForm() {
+      document.getElementById("formPopup").style.display = "none";
+    }
+
+    function sendMessage(event) {
+      event.preventDefault();
+      const name = document.getElementById("packageName").value;
+      const people = document.getElementById("people").value;
+      const date = document.getElementById("date").value;
+      const transport = document.getElementById("transport").value;
+      const message = document.getElementById("message").value;
+
+      const text = `Wedding Inquiry: ${name}%0A👥 Guests: ${people}%0A📅 Date(s): ${date}%0A🚗 Transport: ${transport}%0A📝 Message: ${message}`;
+      const url = `https://wa.me/919131024965?text=${encodeURIComponent(text)}`;
+      window.open(url, "_blank");
+      closeForm();
+    }
+  </script>
+
   <script src="script.js"></script>
 </body>
 </html>
