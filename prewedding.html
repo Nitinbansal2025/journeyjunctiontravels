@@ -1,1 +1,97 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pre-Wedding Shoots | Journey Junction Travel</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="nav-logo">
+      <img src="sdg.png" alt="Logo" />
+      <h1>Journey Junction Travel</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="rishikesh.html">Packages</a>
+      <a href="adventure.html">Adventure</a>
+    </nav>
+  </header>
+
+  <section class="hero small">
+    <div class="hero-content">
+      <h2>Pre-Wedding Shoots in Rishikesh</h2>
+    </div>
+  </section>
+
+  <section class="description">
+    <p>Capture your love story against the stunning backdrops of Rishikesh — from serene riversides to forest trails and majestic mountains. Our team ensures magical, memorable and cinematic pre-wedding shoot experiences, tailored just for you.</p>
+  </section>
+
+  <section class="packages">
+    <h2>Our Shoot Packages</h2>
+    <div class="card-container">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1735052713313-40c183b5e4cf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Shoot" />
+        <h3>Basic Outdoor Shoot 🎥</h3>
+        <p>2 hours shoot + 25 edited photos</p>
+        <a href="#" class="btn" onclick="openForm('Shoot')">Book Now</a>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1595971138831-b66fe19b2a8b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Shoot Plus" />
+        <h3>Premium Shoot + Cinematic 🎬</h3>
+        <p>Full day + Video + Drone + Makeup</p>
+        <a href="#" class="btn" onclick="openForm('Shoot Premium')">Book Now</a>
+      </div>
+    </div>
+    <p class="note">*Pricing may vary depending on season and customization</p>
+  </section>
+
+  <div class="form-popup" id="popupForm">
+    <form id="bookingForm" class="form-container" onsubmit="sendWhatsAppMessage(event)">
+      <h3>Customize Your Shoot</h3>
+      <input type="text" id="people" placeholder="Number of People" required>
+      <input type="text" id="days" placeholder="Preferred Date(s)" required>
+      <select id="transport">
+        <option value="">Transportation Required?</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+      <textarea id="message" placeholder="Special Requests"></textarea>
+      <button type="submit" class="btn">Submit via WhatsApp</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+    </form>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Journey Junction Travel</p>
+    <a href="https://www.instagram.com/journey_junction_123" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram" class="insta-icon"/>
+    </a>
+  </footer>
+
+  <script>
+    let selectedPackage = "";
+    function openForm(pkg) {
+      selectedPackage = pkg;
+      document.getElementById("popupForm").style.display = "block";
+    }
+    function closeForm() {
+      document.getElementById("popupForm").style.display = "none";
+    }
+    function sendWhatsAppMessage(event) {
+      event.preventDefault();
+      const people = document.getElementById("people").value;
+      const days = document.getElementById("days").value;
+      const transport = document.getElementById("transport").value;
+      const message = document.getElementById("message").value;
+
+      const text = `Booking: ${selectedPackage}\nPeople: ${people}\nDate(s): ${days}\nTransport: ${transport}\nMessage: ${message}`;
+      const url = `https://wa.me/919131024965?text=${encodeURIComponent(text)}`;
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
+</html>
