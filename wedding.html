@@ -19,7 +19,7 @@
     </nav>
   </header>
 
-  <section class="hero small">
+  <section class="hero small-hero">
     <div class="hero-content">
       <h2>Destination Weddings in Rishikesh</h2>
     </div>
@@ -49,11 +49,11 @@
   </section>
 
   <!-- WhatsApp Booking Popup Form -->
-  <div class="form-popup" id="popupForm">
-    <form id="bookingForm" class="form-container" onsubmit="sendWhatsAppMessage(event)">
+  <div class="form-popup" id="formPopup">
+    <form id="bookingForm" class="form-container" onsubmit="sendMessage(event)">
       <h3>Customize Your Wedding</h3>
       <input type="text" id="people" placeholder="Number of Guests" required>
-      <input type="text" id="days" placeholder="Preferred Date(s)" required>
+      <input type="text" id="date" placeholder="Preferred Date(s)" required>
       <select id="transport" required>
         <option value="">Transportation Required?</option>
         <option value="Yes">Yes</option>
@@ -72,30 +72,7 @@
     </a>
   </footer>
 
-  <script>
-    let selectedPackage = "";
-
-    function openForm(pkg) {
-      selectedPackage = pkg;
-      document.getElementById("popupForm").style.display = "flex";
-    }
-
-    function closeForm() {
-      document.getElementById("popupForm").style.display = "none";
-    }
-
-    function sendWhatsAppMessage(event) {
-      event.preventDefault();
-      const people = document.getElementById("people").value;
-      const days = document.getElementById("days").value;
-      const transport = document.getElementById("transport").value;
-      const message = document.getElementById("message").value;
-
-      const text = `Booking: ${selectedPackage}\nGuests: ${people}\nDate(s): ${days}\nTransport: ${transport}\nMessage: ${message}`;
-      const url = `https://wa.me/919131024965?text=${encodeURIComponent(text)}`;
-      window.open(url, "_blank");
-    }
-  </script>
+  <!-- Link to script file -->
   <script src="script.js"></script>
 </body>
 </html>
