@@ -1,5 +1,9 @@
+// Store selected package name globally
+let selectedPackage = "";
+
 // Show popup form
-function openForm() {
+function openForm(packageName) {
+  selectedPackage = packageName; // Save which package was clicked
   const popup = document.getElementById("formPopup");
   if (popup) popup.classList.add("show");
 
@@ -25,9 +29,4 @@ function sendMessage(event) {
   const date = document.getElementById("date")?.value || "";
   const msg = document.getElementById("message")?.value || "";
 
-  const text = `Hello! I am interested in booking.%0AName: ${name}%0APhone: ${phone}%0ADate: ${date}%0AMessage: ${msg}`;
-  const number = "9131024965"; // Your WhatsApp number
-  const link = `https://wa.me/${number}?text=${text}`;
-
-  window.open(link, "_blank");
-}
+  const text = `Hello! I am interested in b
