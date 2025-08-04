@@ -5,30 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Rishikesh Packages</title>
   <link rel="stylesheet" href="style.css" />
-  <script>
-    function openBooking(stayType) {
-      const form = document.getElementById("booking-form");
-      form.style.display = "block";
-      document.getElementById("stayType").value = stayType;
-    }
-
-    function submitBookingForm() {
-      const stayType = document.getElementById("stayType").value;
-      const people = document.getElementById("people").value;
-      const days = document.getElementById("days").value;
-      const transport = document.getElementById("transport").value;
-      const message = document.getElementById("customMessage").value;
-
-      const finalMsg = `Hello, I'm interested in the ${stayType} package.\nPeople: ${people}\nDays: ${days}\nTransportation: ${transport}\nMessage: ${message}`;
-
-      const encodedMsg = encodeURIComponent(finalMsg);
-      window.open(`https://wa.me/919131024965?text=${encodedMsg}`, "_blank");
-    }
-
-    function closeForm() {
-      document.getElementById("booking-form").style.display = "none";
-    }
-  </script>
 </head>
 <body>
 
@@ -36,10 +12,13 @@
     <h1>Journey Junction Travel</h1>
     <nav>
       <a href="index.html">Home</a>
+      <a href="adventure.html">Adventure</a>
+      <a href="prewedding.html">Pre-Wedding</a>
+      <a href="wedding.html">Wedding</a>
     </nav>
   </header>
 
-  <section class="hero small-hero">
+  <section class="hero small-hero" style="background-image: url('https://images.unsplash.com/photo-1524492412937-4961b7746d0b?q=80&w=1170&auto=format&fit=crop'); background-size: cover; background-position: center;">
     <div class="hero-content">
       <h2>Rishikesh Stay Packages</h2>
     </div>
@@ -53,24 +32,24 @@
   <section class="packages">
     <div class="card-container">
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1621519994490-b87b9401599e?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Camp Stay" />
+        <img src="https://images.unsplash.com/photo-1621519994490-b87b9401599e?q=80&w=687&auto=format&fit=crop" alt="Camp Stay" />
         <h3>Camp Stay ⛺</h3>
         <p>🛏️ Beds | 🌊 Near River | 🔥 Bonfire</p>
-        <button class="btn" onclick="openBooking('Camp Stay')">Book Now</button>
+        <button class="btn" onclick="openForm('Camp Stay')">Book Now</button>
       </div>
 
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1700985958192-f2045c1c8e7e?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Resort Stay" />
+        <img src="https://images.unsplash.com/photo-1700985958192-f2045c1c8e7e?q=80&w=1074&auto=format&fit=crop" alt="Resort Stay" />
         <h3>Resort Stay 🏡</h3>
         <p>🌄 Scenic View | 🏊 Pool | 🍽️ Meals</p>
-        <button class="btn" onclick="openBooking('Resort Stay')">Book Now</button>
+        <button class="btn" onclick="openForm('Resort Stay')">Book Now</button>
       </div>
 
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1642942224399-44398a9e6c6d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Cottages" />
-        <h3>Cottages 🏡</h3>
+        <img src="https://images.unsplash.com/photo-1642942224399-44398a9e6c6d?q=80&w=1170&auto=format&fit=crop" alt="Cottages" />
+        <h3>Cottage Stay 🏠</h3>
         <p>🌳 Peaceful | 🍛 Homely Food | 🚐 Transport</p>
-        <button class="btn" onclick="openBooking('Cottage Stay')">Book Now</button>
+        <button class="btn" onclick="openForm('Cottage Stay')">Book Now</button>
       </div>
     </div>
   </section>
@@ -79,30 +58,56 @@
     <p><strong>Note:</strong> Prices may vary from season to season. Contact us for the best offers!</p>
   </section>
 
-  <!-- Booking Form Popup -->
-  <div id="booking-form" class="form-popup">
-    <div class="form-content">
-      <span class="close" onclick="closeForm()">×</span>
+  <!-- WhatsApp Booking Form Popup -->
+  <div class="form-popup" id="popupForm">
+    <form class="form-container" onsubmit="sendWhatsAppMessage(event)">
       <h3>Book Your Stay</h3>
-      <input type="hidden" id="stayType" />
-      <label>Number of People:</label>
-      <input type="number" id="people" required />
-
-      <label>Number of Days:</label>
-      <input type="number" id="days" required />
-
-      <label>Need Transportation?</label>
+      <input type="hidden" id="selectedPackage">
+      <input type="number" id="people" placeholder="Number of People" required>
+      <input type="text" id="days" placeholder="Number of Days" required>
       <select id="transport">
+        <option value="">Transportation Required?</option>
         <option value="Yes">Yes</option>
         <option value="No">No</option>
       </select>
-
-      <label>Message:</label>
-      <textarea id="customMessage" placeholder="Any custom request..."></textarea>
-
-      <button onclick="submitBookingForm()">Submit & Message on WhatsApp</button>
-    </div>
+      <textarea id="message" placeholder="Custom Request..."></textarea>
+      <button type="submit" class="btn">Submit via WhatsApp</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+    </form>
   </div>
+
+  <footer>
+    <p>&copy; 2025 Journey Junction Travel</p>
+    <a href="https://www.instagram.com/journey_junction_123" target="_blank">
+      <img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram" class="insta-icon"/>
+    </a>
+  </footer>
+
+  <script>
+    let selectedPackage = "";
+
+    function openForm(pkg) {
+      selectedPackage = pkg;
+      document.getElementById("selectedPackage").value = pkg;
+      document.getElementById("popupForm").style.display = "flex";
+    }
+
+    function closeForm() {
+      document.getElementById("popupForm").style.display = "none";
+    }
+
+    function sendWhatsAppMessage(event) {
+      event.preventDefault();
+      const people = document.getElementById("people").value;
+      const days = document.getElementById("days").value;
+      const transport = document.getElementById("transport").value;
+      const message = document.getElementById("message").value;
+
+      const text = `Booking: ${selectedPackage}\nPeople: ${people}\nDays: ${days}\nTransport: ${transport}\nMessage: ${message}`;
+      const url = `https://wa.me/919131024965?text=${encodeURIComponent(text)}`;
+      window.open(url, "_blank");
+    }
+  </script>
 
 </body>
 </html>
