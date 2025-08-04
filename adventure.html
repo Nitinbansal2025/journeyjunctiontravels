@@ -33,25 +33,25 @@
     <h2>Adventure Packages</h2>
     <div class="card-container">
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1642933196504-62107dac9258?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Rafting" />
+        <img src="https://images.unsplash.com/photo-1642933196504-62107dac9258?q=80&w=1074&auto=format&fit=crop" alt="Rafting" />
         <h3>River Rafting 🌊</h3>
         <p>₹800 onwards</p>
         <button class="btn" onclick="openForm('Rafting')">Book Now</button>
       </div>
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1549221360-456a9c197d5b?q=80&w=1174&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Bungee" />
+        <img src="https://images.unsplash.com/photo-1549221360-456a9c197d5b?q=80&w=1174&auto=format&fit=crop" alt="Bungee" />
         <h3>Bungee Jumping 🪂</h3>
         <p>₹4000 onwards</p>
         <button class="btn" onclick="openForm('Bungee Jumping')">Book Now</button>
       </div>
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Trekking" />
+        <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=1170&auto=format&fit=crop" alt="Trekking" />
         <h3>Trekking 🥾</h3>
         <p>Day treks & multi-day options</p>
         <button class="btn" onclick="openForm('Trekking')">Book Now</button>
       </div>
       <div class="card">
-        <img src="https://images.unsplash.com/photo-1637511077877-3c6a00eb32ba?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Other Activities" />
+        <img src="https://images.unsplash.com/photo-1637511077877-3c6a00eb32ba?q=80&w=1170&auto=format&fit=crop" alt="Other Activities" />
         <h3>Other Adventures 🎯</h3>
         <p>Zipline, Paintball, Rock Climbing</p>
         <button class="btn" onclick="openForm('Other Adventures')">Book Now</button>
@@ -61,8 +61,8 @@
   </section>
 
   <!-- Booking Form -->
-  <div class="form-popup" id="bookingForm">
-    <form class="form-container" onsubmit="submitToWhatsApp(event)">
+  <div class="form-popup" id="popupForm">
+    <form class="form-container" onsubmit="sendWhatsAppMessage(event)">
       <h2>Adventure Booking</h2>
       <input type="hidden" id="packageName" name="packageName" />
       <label for="people">Number of People:</label>
@@ -86,27 +86,31 @@
   </footer>
 
   <script>
-    function openForm(packageName) {
-      document.getElementById("packageName").value = packageName;
-      document.getElementById("bookingForm").style.display = "block";
+    let selectedPackage = "";
+
+    function openForm(pkg) {
+      selectedPackage = pkg;
+      document.getElementById("packageName").value = pkg;
+      document.getElementById("popupForm").style.display = "flex";
     }
 
     function closeForm() {
-      document.getElementById("bookingForm").style.display = "none";
+      document.getElementById("popupForm").style.display = "none";
     }
 
-    function submitToWhatsApp(event) {
+    function sendWhatsAppMessage(event) {
       event.preventDefault();
-      const name = document.getElementById("packageName").value;
       const people = document.getElementById("people").value;
       const days = document.getElementById("days").value;
       const transport = document.getElementById("transport").value;
       const message = document.getElementById("message").value;
+      const pkg = document.getElementById("packageName").value;
 
-      const fullMessage = `Hello, I'm interested in the *${name}* package.%0A👥 People: ${people}%0A🗓 Days: ${days}%0A🚗 Transport: ${transport}%0A📝 Message: ${encodeURIComponent(message)}`;
+      const text = `Booking: ${pkg}\nPeople: ${people}\nDays: ${days}\nTransport: ${transport}\nMessage: ${message}`;
+      const url = `https://wa.me/919131024965?text=${encodeURIComponent(text)}`;
+      window.open(url, "_blank");
 
-      window.open(`https://wa.me/919131024965?text=${fullMessage}`, "_blank");
-      closeForm();
+      closeForm(); // hide form after sending
     }
   </script>
 
