@@ -19,7 +19,7 @@
   </header>
 
   <!-- Unique hero image for Rishikesh page -->
-  <section class="hero small-hero" style="background-image: url('https://images.unsplash.com/photo-1603867106100-0d2039fc8757?q=80&w=1181&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size: cover; background-position: center;">
+  <section class="hero small-hero" style="background-image: url('https://images.unsplash.com/photo-1603867106100-0d2039fc8757?q=80&w=1181&auto=format&fit=crop'); background-size: cover; background-position: center;">
     <div class="hero-content">
       <h2>Rishikesh Stay Packages</h2>
     </div>
@@ -61,9 +61,9 @@
 
   <!-- WhatsApp Booking Form Popup -->
   <div class="form-popup" id="popupForm">
-    <form class="form-container" onsubmit="sendMessage(event)">
+    <form class="form-container" onsubmit="sendWhatsAppMessage(event)">
       <h3>Book Your Stay</h3>
-      <input type="hidden" id="selectedPackage">
+      <input type="hidden" id="packageName" />
       <input type="number" id="people" placeholder="Number of People" required>
       <input type="text" id="days" placeholder="Number of Days" required>
       <select id="transport">
@@ -84,7 +84,6 @@
     </a>
   </footer>
 
-  <!-- JavaScript at end -->
   <script src="script.js"></script>
 </body>
 </html>
