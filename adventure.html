@@ -17,7 +17,7 @@
     </nav>
   </header>
 
- <section class="hero small-hero" style="background-image: url('https://images.unsplash.com/photo-1418846531910-2b7bb1043512?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); background-size: cover; background-position: center;">
+  <section class="hero small-hero" style="background-image: url('https://images.unsplash.com/photo-1418846531910-2b7bb1043512?q=80&w=1170&auto=format&fit=crop'); background-size: cover; background-position: center;">
     <div class="hero-content">
       <h2>Adventure Activities in Rishikesh</h2>
     </div>
@@ -60,22 +60,27 @@
     <p class="note">* Note: Prices may vary depending on season and availability.</p>
   </section>
 
-  <!-- Booking Form -->
+  <!-- Booking Form Popup -->
   <div class="form-popup" id="popupForm">
     <form class="form-container" onsubmit="sendWhatsAppMessage(event)">
       <h2>Adventure Booking</h2>
       <input type="hidden" id="packageName" name="packageName" />
+      
       <label for="people">Number of People:</label>
       <input type="number" id="people" name="people" required />
+      
       <label for="days">Number of Days:</label>
       <input type="number" id="days" name="days" required />
+      
       <label for="transport">Need Transportation?</label>
       <select id="transport" name="transport">
         <option value="Yes">Yes</option>
         <option value="No">No</option>
       </select>
+      
       <label for="message">Message / Special Request:</label>
       <textarea id="message" name="message" placeholder="Customize your package here..."></textarea>
+      
       <button type="submit" class="btn">Send on WhatsApp</button>
       <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
     </form>
@@ -85,34 +90,6 @@
     <p>&copy; 2025 Journey Junction Travel</p>
   </footer>
 
-  <script>
-    let selectedPackage = "";
-
-    function openForm(pkg) {
-      selectedPackage = pkg;
-      document.getElementById("packageName").value = pkg;
-      document.getElementById("popupForm").style.display = "flex";
-    }
-
-    function closeForm() {
-      document.getElementById("popupForm").style.display = "none";
-    }
-
-    function sendWhatsAppMessage(event) {
-      event.preventDefault();
-      const people = document.getElementById("people").value;
-      const days = document.getElementById("days").value;
-      const transport = document.getElementById("transport").value;
-      const message = document.getElementById("message").value;
-      const pkg = document.getElementById("packageName").value;
-
-      const text = `Booking: ${pkg}\nPeople: ${people}\nDays: ${days}\nTransport: ${transport}\nMessage: ${message}`;
-      const url = `https://wa.me/919131024965?text=${encodeURIComponent(text)}`;
-      window.open(url, "_blank");
-
-      closeForm(); // hide form after sending
-    }
-  </script>
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
