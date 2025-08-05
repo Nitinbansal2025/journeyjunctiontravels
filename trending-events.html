@@ -75,21 +75,30 @@
   <section class="about">
     <p><strong>Note:</strong> Packages and pricing may vary seasonally or based on theme.</p>
   </section>
-
-  <!-- WhatsApp Form Popup -->
-  <div id="whatsappForm" class="form-container">
-    <div class="form-content">
-      <span class="close" onclick="closeForm()">&times;</span>
-      <h3>Book Now on WhatsApp</h3>
-      <form onsubmit="sendWhatsAppMessage(event)">
-        <input type="text" id="name" placeholder="Your Name" required />
-        <input type="tel" id="mobile" placeholder="Mobile Number" required />
-        <input type="text" id="event" placeholder="Event Name" readonly />
-        <textarea id="message" placeholder="Additional message..."></textarea>
-        <button type="submit">Send on WhatsApp</button>
-      </form>
-    </div>
+  
+<!-- WhatsApp Form Popup -->
+<div id="formPopup" class="form-popup">
+  <div class="form-box">
+    <span class="close" onclick="closeForm()">&times;</span>
+    <h3>Book Your Event</h3>
+    <form onsubmit="sendMessage(event)">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="tel" id="phone" placeholder="Mobile Number" required />
+      <input type="text" id="packageName" placeholder="Event Name" readonly />
+      <input type="number" id="people" placeholder="Number of People" required />
+      <input type="number" id="days" placeholder="Number of Days" required />
+      <input type="date" id="date" />
+      <select id="transport">
+        <option value="">Need Transport?</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+      <textarea id="message" placeholder="Your Message..."></textarea>
+      <button type="submit">Send on WhatsApp</button>
+    </form>
   </div>
+</div>
+
 
   <!-- Footer -->
   <footer>
