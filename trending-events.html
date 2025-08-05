@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Trending Events | Journey Junction Travel</title>
   <link rel="stylesheet" href="style.css"/>
-  <script src="script.js" defer></script>
 </head>
 <body>
-
-  <!-- Header -->
-  <header class="blur-header">
-    <h1>Journey Junction Travel</h1>
+ <header>
+    <div class="nav-logo">
+      <img src="sdg.png" alt="Logo" />
+      <h1>Journey Junction Travel</h1>
+    </div>
     <nav>
       <a href="index.html">Home</a>
       <a href="rishikesh.html">Rishikesh</a>
@@ -22,14 +22,13 @@
 
   <!-- Hero Section -->
   <section class="hero small-hero" style="background-image: url('https://images.unsplash.com/photo-1556125574-d7f27ec36a06?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
-    <div class="hero-text">
+    <div class="hero-content">
       <h2>Trending Events</h2>
       <p>Seasonal and Weekly Celebrations to Make Memories!</p>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section class="about">
+  <section class="description">
     <h2>Celebrate with Style!</h2>
     <p>Join the most exciting and trending events with Journey Junction Travel. Whether it's a festival, a birthday, or a weekend party, we've got something special for everyone.</p>
   </section>
@@ -42,7 +41,7 @@
       <img src="https://images.unsplash.com/photo-1700431739208-c457af7d2333?q=80&w=889&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Christmas Celebration">
       <h3>🎄 Christmas Celebration</h3>
       <p>Celebrate Christmas with music, decor, food and magical ambiance.</p>
-      <button onclick="openForm('Christmas Celebration')">Book Now</button>
+      <button class="btn" onclick="openForm('Christmas Celebration')">Book Now</button>
     </div>
 
     <!-- New Year 2026 -->
@@ -50,7 +49,7 @@
       <img src="https://images.unsplash.com/photo-1531029714601-ea6b4ebe1eae?q=80&w=872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="New Year Celebration">
       <h3>🎆 New Year Celebration 2026</h3>
       <p>Ring in 2026 with bonfire, music, fireworks and unlimited fun!</p>
-      <button onclick="openForm('New Year 2026')">Book Now</button>
+     <button class="btn" onclick="openForm('New Year 2026')">Book Now</button>
     </div>
 
     <!-- Birthday Parties -->
@@ -58,7 +57,7 @@
       <img src="https://images.unsplash.com/photo-1692155628903-3f93fa955da7?q=80&w=868&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Birthday Parties">
       <h3>🎂 Birthday Party Packages</h3>
       <p>Celebrate birthdays with custom themes, cake, music and memories.</p>
-      <button onclick="openForm('Birthday Party')">Book Now</button>
+     <button class="btn" onclick="openForm('Birthday Party')">Book Now</button>
     </div>
 
     <!-- Weekly Themed Party -->
@@ -66,7 +65,7 @@
       <img src="https://images.unsplash.com/photo-1725799213473-12d027bec7e9?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Weekly Themed Party">
       <h3>🪩 Weekly Themed Party</h3>
       <p>Every weekend, enjoy a surprise theme party with DJ, games & food!</p>
-      <button onclick="openForm('Weekly Themed Party')">Book Now</button>
+      <button class="btn" onclick="openForm('Weekly Themed Party')">Book Now</button>
     </div>
 
   </section>
@@ -77,27 +76,26 @@
   </section>
 
   <!-- WhatsApp Form Popup -->
-  <div id="formPopup" class="form-popup">
-    <div class="form-box">
-      <span class="close" onclick="closeForm()">&times;</span>
-      <h3>Book Your Event</h3>
-      <form onsubmit="sendMessage(event)">
-        <input type="text" id="name" placeholder="Your Name" required />
-        <input type="tel" id="phone" placeholder="Mobile Number" required />
-        <input type="text" id="packageName" placeholder="Event Name" readonly />
-        <input type="number" id="people" placeholder="Number of People" required />
-        <input type="number" id="days" placeholder="Number of Days" required />
-        <input type="date" id="date" />
-        <select id="transport">
-          <option value="">Need Transport?</option>
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-        </select>
-        <textarea id="message" placeholder="Your Message..."></textarea>
-        <button type="submit">Send on WhatsApp</button>
-      </form>
-    </div>
+  <!-- Popup Booking Form -->
+  <div class="form-popup" id="popupForm">
+   <form class="form-container" onsubmit="sendMessage(event)">
+      <h3>Customize Your Shoot</h3>
+      <input type="hidden" id="packageName" />
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="text" id="phone" placeholder="Phone Number" required />
+      <input type="text" id="people" placeholder="Number of People" required />
+      <input type="text" id="days" placeholder="Preferred Date(s)" required />
+      <select id="transport" required>
+        <option value="">Transportation Required?</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+      <textarea id="message" placeholder="Special Requests"></textarea>
+      <button type="submit" class="btn">Submit via WhatsApp</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+    </form>
   </div>
+
 
   <!-- Footer -->
   <footer>
@@ -107,5 +105,6 @@
     </a>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
