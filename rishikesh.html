@@ -59,23 +59,38 @@
     <p><strong>Note:</strong> Prices may vary from season to season. Contact us for the best offers!</p>
   </section>
 
-  <!-- WhatsApp Booking Form Popup -->
-  <div class="form-popup" id="popupForm">
-   <form class="form-container" onsubmit="sendMessage(event)">
-      <h3>Book Your Stay</h3>
-      <input type="hidden" id="packageName" />
-      <input type="number" id="people" placeholder="Number of People" required>
-      <input type="text" id="days" placeholder="Number of Days" required>
-      <select id="transport">
-        <option value="">Transportation Required?</option>
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-      </select>
-      <textarea id="message" placeholder="Custom Request..."></textarea>
-      <button type="submit" class="btn">Submit via WhatsApp</button>
-      <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
-    </form>
-  </div>
+<!-- Booking Form Popup -->
+<div class="form-popup" id="popupForm">
+  <form class="form-container" onsubmit="sendMessage(event)">
+    <h2>Adventure Booking</h2>
+
+    <input type="hidden" id="packageName" name="packageName" />
+
+    <label for="name">Your Name:</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="phone">Mobile Number:</label>
+    <input type="tel" id="phone" name="phone" required />
+
+    <label for="people">Number of People:</label>
+    <input type="number" id="people" name="people" required />
+
+    <label for="days">Number of Days:</label>
+    <input type="number" id="days" name="days" required />
+
+    <label for="transport">Need Transportation?</label>
+    <select id="transport" name="transport">
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+    </select>
+
+    <label for="message">Message / Special Request:</label>
+    <textarea id="message" name="message" placeholder="Customize your package here..."></textarea>
+
+    <button type="submit" class="btn">Send on WhatsApp</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+  </form>
+</div>
 
   <footer>
     <p>&copy; 2025 Journey Junction Travel</p>
