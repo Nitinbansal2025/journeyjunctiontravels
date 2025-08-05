@@ -314,3 +314,18 @@ footer .insta-icon {
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   text-align: center;
 }
+
+/* Fix Trending Events card layout to match other packages */
+.trending-events .package-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.trending-events .package-card {
+  width: 300px;
+  max-width: 100%;
+  flex: 0 0 auto;
+}
