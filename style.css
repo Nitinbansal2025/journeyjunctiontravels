@@ -296,3 +296,21 @@ footer .insta-icon {
   position: relative;
 }
 
+/* ✅ Package Card Row Fix for Trending Events */
+.packages .package-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.packages .package-card {
+  flex: 1 1 300px;
+  max-width: 300px;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
