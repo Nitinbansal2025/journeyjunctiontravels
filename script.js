@@ -31,6 +31,7 @@ function sendMessage(event) {
   const phone = document.getElementById("phone").value.trim();
   const people = document.getElementById("people").value.trim();
   const days = document.getElementById("days").value.trim();
+  const date = document.getElementById("date").value.trim();
   const transport = document.getElementById("transport").value;
   const message = document.getElementById("message").value.trim();
   const packageName = document.getElementById("packageName").value || "Adventure Package";
@@ -42,6 +43,7 @@ function sendMessage(event) {
 📱 Mobile: ${phone}
 👥 People: ${people}
 📆 Days: ${days}
+📅 Preferred Date: ${date}
 🚗 Transport: ${transport}
 📝 Message: ${message || "N/A"}
 
@@ -51,4 +53,5 @@ Please confirm availability.`;
   window.open(url, "_blank");
   closeForm();
 }
+
 
