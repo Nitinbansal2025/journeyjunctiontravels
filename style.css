@@ -329,3 +329,42 @@ footer .insta-icon {
   max-width: 100%;
   flex: 0 0 auto;
 }
+
+/* Fix for Trending Events cards to match Adventure layout */
+.trending-events .package-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.trending-events .package-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  width: 280px;
+  padding: 20px;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.trending-events .package-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.trending-events .package-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.trending-events .package-card p {
+  font-size: 15px;
+  color: #666;
+}
