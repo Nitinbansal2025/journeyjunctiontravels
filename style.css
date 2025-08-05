@@ -343,3 +343,30 @@ footer .insta-icon {
     flex-direction: column;
   }
 }
+/* Floating WhatsApp Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  text-decoration: none;
+}
+
+.whatsapp-icon-container {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-icon-container:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-icon {
+  width: 30px;
+  height: 30px;
+  display: block;
+}
