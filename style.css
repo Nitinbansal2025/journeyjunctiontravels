@@ -80,7 +80,7 @@ nav a {
 .hero-content h2 {
   font-size: 36px;
   font-weight: bold;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.6); /* Better visibility */
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.6);
 }
 
 .hero-content p {
@@ -276,6 +276,8 @@ footer .insta-icon {
   background: rgba(0, 0, 0, 0.6);
   justify-content: center;
   align-items: center;
+  padding: 20px;
+  overflow-y: auto;
 }
 
 .form-container {
@@ -286,87 +288,4 @@ footer .insta-icon {
   width: 320px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
   position: relative;
-}
-
-.form-container input,
-.form-container select,
-.form-container textarea {
-  width: 100%;
-  margin-bottom: 12px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-}
-
-.form-container button {
-  background-color: #25d366;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.form-container button.cancel {
-  background-color: #ccc;
-  margin-top: 8px;
-}
-
-.form-container button.cancel:hover {
-  background-color: #999;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .card-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .nav-logo h1 {
-    font-size: 16px;
-  }
-
-  .hero-content h2 {
-    font-size: 24px;
-  }
-
-  .hero-content p {
-    font-size: 14px;
-  }
-
-  nav {
-    display: flex;
-    flex-direction: column;
-  }
-}
-/* Floating WhatsApp Button */
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 999;
-  text-decoration: none;
-}
-
-.whatsapp-icon-container {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(10px);
-  border-radius: 50%;
-  padding: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-}
-
-.whatsapp-icon-container:hover {
-  transform: scale(1.1);
-}
-
-.whatsapp-icon {
-  width: 30px;
-  height: 30px;
-  display: block;
 }
