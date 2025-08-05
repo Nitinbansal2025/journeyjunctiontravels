@@ -24,21 +24,31 @@ function closeForm() {
   if (formAlt) formAlt.style.display = "none";
 }
 
-// Send message to WhatsApp
 function sendMessage(event) {
   event.preventDefault();
 
-  const name = document.getElementById("name")?.value || "";
-  const phone = document.getElementById("phone")?.value || "";
-  const date = document.getElementById("date")?.value || "";
-  const msg = document.getElementById("message")?.value || "";
+  const name = document.getElementById("name").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const people = document.getElementById("people").value.trim();
+  const days = document.getElementById("days").value.trim();
+  const transport = document.getElementById("transport").value;
+  const message = document.getElementById("message").value.trim();
+  const packageName = document.getElementById("packageName").value || "Adventure Package";
 
-  const pkg = selectedPackage || document.getElementById("packageName")?.value || "Not specified";
+  const whatsappMessage = `Hello Journey Junction Travel! 👋
 
-  const text = `Hello! I am interested in booking:%0A📦 Package: ${pkg}%0A👤 Name: ${name}%0A📞 Phone: ${phone}%0A📅 Date: ${date}%0A📝 Message: ${msg}`;
-  const number = "919131024965"; // Your WhatsApp number
-  const link = `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
+*Booking Inquiry - ${packageName}*
+📛 Name: ${name}
+📱 Mobile: ${phone}
+👥 People: ${people}
+📆 Days: ${days}
+🚗 Transport: ${transport}
+📝 Message: ${message || "N/A"}
 
-  window.open(link, "_blank");
+Please confirm availability.`;
+
+  const url = `https://wa.me/919131024965?text=${encodeURIComponent(whatsappMessage)}`;
+  window.open(url, "_blank");
   closeForm();
 }
+
