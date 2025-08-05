@@ -36,7 +36,7 @@
 
   <!-- Events List -->
   <section class="cards">
-    
+
     <!-- Christmas Celebration -->
     <div class="card">
       <img src="https://images.unsplash.com/photo-1700431739208-c457af7d2333?q=80&w=889&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Christmas Celebration">
@@ -75,30 +75,29 @@
   <section class="about">
     <p><strong>Note:</strong> Packages and pricing may vary seasonally or based on theme.</p>
   </section>
-  
-<!-- WhatsApp Form Popup -->
-<div id="formPopup" class="form-popup">
-  <div class="form-box">
-    <span class="close" onclick="closeForm()">&times;</span>
-    <h3>Book Your Event</h3>
-    <form onsubmit="sendMessage(event)">
-      <input type="text" id="name" placeholder="Your Name" required />
-      <input type="tel" id="phone" placeholder="Mobile Number" required />
-      <input type="text" id="packageName" placeholder="Event Name" readonly />
-      <input type="number" id="people" placeholder="Number of People" required />
-      <input type="number" id="days" placeholder="Number of Days" required />
-      <input type="date" id="date" />
-      <select id="transport">
-        <option value="">Need Transport?</option>
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-      </select>
-      <textarea id="message" placeholder="Your Message..."></textarea>
-      <button type="submit">Send on WhatsApp</button>
-    </form>
-  </div>
-</div>
 
+  <!-- Corrected WhatsApp Popup Form -->
+  <div id="whatsappForm" class="form-popup">
+    <div class="form-container">
+      <span class="close" onclick="closeForm()">&times;</span>
+      <h3>Book Your Event</h3>
+      <form onsubmit="sendMessage(event)">
+        <input type="text" id="name" placeholder="Your Name" required />
+        <input type="tel" id="phone" placeholder="Mobile Number" required />
+        <input type="text" id="packageName" placeholder="Event Name" readonly />
+        <input type="number" id="people" placeholder="Number of People" required />
+        <input type="number" id="days" placeholder="Number of Days" required />
+        <input type="date" id="date" />
+        <select id="transport">
+          <option value="">Need Transport?</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+        <textarea id="message" placeholder="Your Message..."></textarea>
+        <button type="submit">Send on WhatsApp</button>
+      </form>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer>
