@@ -289,3 +289,71 @@ footer .insta-icon {
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
   position: relative;
 }
+
+.form-container input,
+.form-container select,
+.form-container textarea {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* 👇 Enhancements for wedding/pre-wedding form */
+
+.form-container input[type="date"] {
+  padding: 8px;
+  font-size: 14px;
+}
+
+.form-container .radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.form-container .radio-group label {
+  background-color: #eee;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  user-select: none;
+}
+
+.form-container .radio-group input[type="radio"] {
+  display: none;
+}
+
+.form-container .radio-group input[type="radio"]:checked + label {
+  background-color: #f68b1e;
+  color: white;
+  font-weight: bold;
+}
+
+.form-container .celebration-group {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.form-container .celebration-group input[type="radio"] {
+  display: none;
+}
+
+.form-container .celebration-group label {
+  padding: 6px 14px;
+  border-radius: 6px;
+  background-color: #ddd;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.form-container .celebration-group input[type="radio"]:checked + label {
+  background-color: #f68b1e;
+  color: white;
+}
