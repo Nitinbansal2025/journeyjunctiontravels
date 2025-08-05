@@ -51,23 +51,57 @@
     <p class="note">*Pricing and services vary by guest count and season</p>
   </section>
 
-  <!-- ✅ WhatsApp Booking Popup -->
-  <div class="form-popup" id="popupForm">
-    <form class="form-container" onsubmit="sendMessage(event)">
-      <h3>Customize Your Wedding</h3>
-      <input type="hidden" id="packageName" />
-      <input type="text" id="people" placeholder="Number of Guests" required />
-      <input type="text" id="date" placeholder="Preferred Date(s)" required />
-      <select id="transport" required>
-        <option value="">Transportation Required?</option>
-        <option value="Yes">Yes</option>
-        <option value="No">No</option>
-      </select>
-      <textarea id="message" placeholder="Special Requests or Custom Plan"></textarea>
-      <button type="submit" class="btn">Submit via WhatsApp</button>
-      <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
-    </form>
-  </div>
+<!-- Wedding Booking Form Popup -->
+<div class="form-popup" id="popupForm">
+  <form class="form-container" onsubmit="sendWeddingMessage(event)">
+    <h2>Wedding Booking</h2>
+
+    <label for="name">Your Name:</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="phone">Mobile Number:</label>
+    <input type="tel" id="phone" name="phone" required />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required />
+
+    <label for="people">Number of People:</label>
+    <input type="number" id="people" name="people" required />
+
+    <label for="days">Number of Days:</label>
+    <input type="number" id="days" name="days" required />
+
+    <label for="date">Date of the Event:</label>
+    <input type="date" id="date" name="date" required />
+
+    <label for="food">Food Preference:</label>
+    <select id="food" name="food" required>
+      <option value="Veg">Veg</option>
+      <option value="Non-Veg">Non-Veg</option>
+      <option value="Mix">Mix</option>
+      <option value="Jain">Jain (No garlic, No onion)</option>
+    </select>
+
+    <label for="stay">Stay Type:</label>
+    <select id="stay" name="stay" required>
+      <option value="Cottage">Cottage</option>
+      <option value="Camp">Camp</option>
+      <option value="Hotel">Hotel</option>
+    </select>
+
+    <label for="celebration">Celebration Time:</label>
+    <select id="celebration" name="celebration" required>
+      <option value="Day">Day</option>
+      <option value="Night">Night</option>
+    </select>
+
+    <label for="message">Additional Notes:</label>
+    <textarea id="message" name="message" placeholder="Tell us more..."></textarea>
+
+    <button type="submit" class="btn">Send on WhatsApp</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+  </form>
+</div>
 
   <!-- ✅ Footer -->
   <footer>
